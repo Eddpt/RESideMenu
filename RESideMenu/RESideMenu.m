@@ -26,6 +26,7 @@
 #import "RESideMenu.h"
 #import "UIViewController+RESideMenu.h"
 #import "RECommonFunctions.h"
+#import "UIViewController+Storyboard.h"
 
 @interface RESideMenu ()
 
@@ -68,13 +69,13 @@
 - (void)awakeFromNib
 {
     if (self.contentViewStoryboardID) {
-        self.contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:self.contentViewStoryboardID];
+        self.contentViewController = [UIViewController viewControllerForStoryBoardPath:self.contentViewStoryboardID];
     }
     if (self.leftMenuViewStoryboardID) {
-        self.leftMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:self.leftMenuViewStoryboardID];
+        self.leftMenuViewController = [UIViewController viewControllerForStoryBoardPath:self.leftMenuViewStoryboardID];
     }
     if (self.rightMenuViewStoryboardID) {
-        self.rightMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:self.rightMenuViewStoryboardID];
+        self.rightMenuViewController = [UIViewController viewControllerForStoryBoardPath:self.rightMenuViewStoryboardID];
     }
 }
 #endif

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A63EDCC1AA4AE720083B1B6 /* UIViewController+Storyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A63EDCB1AA4AE720083B1B6 /* UIViewController+Storyboard.m */; };
 		3076CDC21809B47200527E6C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3076CDC11809B47200527E6C /* Foundation.framework */; };
 		3076CDC41809B47200527E6C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3076CDC31809B47200527E6C /* CoreGraphics.framework */; };
 		3076CDC61809B47200527E6C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3076CDC51809B47200527E6C /* UIKit.framework */; };
@@ -26,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A63EDCA1AA4AE720083B1B6 /* UIViewController+Storyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Storyboard.h"; sourceTree = "<group>"; };
+		1A63EDCB1AA4AE720083B1B6 /* UIViewController+Storyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Storyboard.m"; sourceTree = "<group>"; };
 		3076CDBE1809B47200527E6C /* RESideMenuStoryboardsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RESideMenuStoryboardsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3076CDC11809B47200527E6C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3076CDC31809B47200527E6C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -150,6 +153,8 @@
 				3076CE0A1809B5C500527E6C /* RESideMenu.m */,
 				3076CE0B1809B5C500527E6C /* UIViewController+RESideMenu.h */,
 				3076CE0C1809B5C500527E6C /* UIViewController+RESideMenu.m */,
+				1A63EDCA1AA4AE720083B1B6 /* UIViewController+Storyboard.h */,
+				1A63EDCB1AA4AE720083B1B6 /* UIViewController+Storyboard.m */,
 			);
 			name = RESideMenu;
 			path = ../../RESideMenu;
@@ -228,6 +233,7 @@
 				3076CE051809B59E00527E6C /* DEMOSecondViewController.m in Sources */,
 				30DF13B218DE1B0C0018463C /* DEMORightMenuViewController.m in Sources */,
 				3076CE041809B59E00527E6C /* DEMORootViewController.m in Sources */,
+				1A63EDCC1AA4AE720083B1B6 /* UIViewController+Storyboard.m in Sources */,
 				3076CE0F1809B5C500527E6C /* UIViewController+RESideMenu.m in Sources */,
 				3076CE0E1809B5C500527E6C /* RESideMenu.m in Sources */,
 				3076CE0D1809B5C500527E6C /* RECommonFunctions.m in Sources */,
