@@ -229,8 +229,9 @@
     self.contentViewController.view.frame = self.view.bounds;
     [self.contentViewContainer addSubview:self.contentViewController.view];
     [self.contentViewController didMoveToParentViewController:self];
-    
-    self.menuViewContainer.alpha = !self.fadeMenuView ?: 0;
+  
+    UIView *viewToFade = self.menuSubviewToFade ?: self.menuViewContainer;
+    viewToFade.alpha = !self.fadeMenuView ?: 0;
     if (self.scaleBackgroundImageView)
         self.backgroundImageView.transform = CGAffineTransformMakeScale(1.7f, 1.7f);
     
@@ -260,7 +261,8 @@
     if (self.scaleMenuView) {
         self.menuViewContainer.transform = self.menuViewControllerTransformation;
     }
-    self.menuViewContainer.alpha = !self.fadeMenuView ?: 0;
+    UIView *viewToFade = self.menuSubviewToFade ?: self.menuViewContainer;
+    viewToFade.alpha = !self.fadeMenuView ?: 0;
     if (self.scaleBackgroundImageView)
         self.backgroundImageView.transform = CGAffineTransformMakeScale(1.7f, 1.7f);
     
@@ -293,8 +295,9 @@
         } else {
             self.contentViewContainer.center = CGPointMake((UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) ? self.contentViewInLandscapeOffsetCenterX + CGRectGetHeight(self.view.frame) : self.contentViewInPortraitOffsetCenterX + CGRectGetWidth(self.view.frame)), self.contentViewContainer.center.y);
         }
-
-        self.menuViewContainer.alpha = !self.fadeMenuView ?: 1.0f;
+      
+        UIView *viewToFade = self.menuSubviewToFade ?: self.menuViewContainer;
+        viewToFade.alpha = !self.fadeMenuView ?: 1.0f;
         self.contentViewContainer.alpha = self.contentViewFadeOutAlpha;
         self.menuViewContainer.transform = CGAffineTransformIdentity;
         if (self.scaleBackgroundImageView)
@@ -334,8 +337,9 @@
             self.contentViewContainer.transform = CGAffineTransformIdentity;
         }
         self.contentViewContainer.center = CGPointMake((UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) ? -self.contentViewInLandscapeOffsetCenterX : -self.contentViewInPortraitOffsetCenterX), self.contentViewContainer.center.y);
-        
-        self.menuViewContainer.alpha = !self.fadeMenuView ?: 1.0f;
+      
+        UIView *viewToFade = self.menuSubviewToFade ?: self.menuViewContainer;
+        viewToFade.alpha = !self.fadeMenuView ?: 1.0f;
         self.contentViewContainer.alpha = self.contentViewFadeOutAlpha;
         self.menuViewContainer.transform = CGAffineTransformIdentity;
         if (self.scaleBackgroundImageView)
@@ -385,7 +389,8 @@
         if (strongSelf.scaleMenuView) {
             strongSelf.menuViewContainer.transform = strongSelf.menuViewControllerTransformation;
         }
-        strongSelf.menuViewContainer.alpha = !self.fadeMenuView ?: 0;
+        UIView *viewToFade = strongSelf.menuSubviewToFade ?: strongSelf.menuViewContainer;
+        viewToFade.alpha = !self.fadeMenuView ?: 0;
         strongSelf.contentViewContainer.alpha = 1;
 
         if (strongSelf.scaleBackgroundImageView) {
@@ -589,8 +594,9 @@
             backgroundViewScale = MAX(backgroundViewScale, 1.0);
             menuViewScale = MAX(menuViewScale, 1.0);
         }
-        
-        self.menuViewContainer.alpha = !self.fadeMenuView ?: delta;
+      
+        UIView *viewToFade = self.menuSubviewToFade ?: self.menuViewContainer;
+        viewToFade.alpha = !self.fadeMenuView ?: delta;
         self.contentViewContainer.alpha = 1 - (1 - self.contentViewFadeOutAlpha) * delta;
         
         if (self.scaleBackgroundImageView) {
