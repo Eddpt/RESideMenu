@@ -39,6 +39,7 @@
 @property (strong, readwrite, nonatomic) UIView *menuViewContainer;
 @property (strong, readwrite, nonatomic) UIView *contentViewContainer;
 @property (assign, readwrite, nonatomic) BOOL didNotifyDelegate;
+@property (strong, nonatomic) UIPanGestureRecognizer *panGestureRecognizer;
 
 @end
 
@@ -238,13 +239,8 @@
     
     [self addMenuViewControllerMotionEffects];
     
-    if (self.panGestureEnabled) {
-        self.view.multipleTouchEnabled = NO;
-        UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)];
-        panGestureRecognizer.delegate = self;
-        [self.view addGestureRecognizer:panGestureRecognizer];
-    }
-    
+    [self handlePanGestureEnabled];
+  
     [self updateContentViewShadow];
 }
 
@@ -448,6 +444,23 @@
             [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
         }];
     }
+}
+
+- (void)handlePanGestureEnabled
+{
+  if (self.panGestureEnabled) {
+    self.view.multipleTouchEnabled = NO;
+    self.panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)];
+    self.panGestureRecognizer.delegate = self;
+    [self.view addGestureRecognizer:self.panGestureRecognizer];
+    return;
+  }
+  
+  if (self.panGestureRecognizer) {
+    self.panGestureRecognizer.delegate = nil;
+    [self.view removeGestureRecognizer:self.panGestureRecognizer];
+    self.panGestureRecognizer = nil;
+  }
 }
 
 - (void)updateContentViewShadow
@@ -713,6 +726,16 @@
     _backgroundImage = backgroundImage;
     if (self.backgroundImageView)
         self.backgroundImageView.image = backgroundImage;
+}
+
+- (void)setPanGestureEnabled:(BOOL)panGestureEnabled
+{
+  if (panGestureEnabled == _panGestureEnabled) {
+    return;
+  }
+  
+  _panGestureEnabled = panGestureEnabled;
+  [self handlePanGestureEnabled];
 }
 
 - (void)setContentViewController:(UIViewController *)contentViewController
